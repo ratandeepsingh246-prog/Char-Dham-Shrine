@@ -20,5 +20,8 @@ The dashboard provides a comprehensive view of pilgrim footfall across Badrinath
 - Power BI  
 - Char Dham Pilgrim Dataset  
 
+## Project
+![image](https://github.com/ratandeepsingh246-prog/Char-Dham-Shrine/blob/08e4e6c3da6f7ecd31aa45cbc04157685551262e/Screenshot%20(185).png)
+
 ## Purpose
 The purpose of this project is to analyze religious tourism trends, identify growth patterns, and demonstrate data visualization and analytical skills using Power BI.
