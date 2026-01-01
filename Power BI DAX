@@ -1,1 +1,75 @@
+## For CAGR i wrote this Dax formula
+CAGR = 
+VAR StartValue =
+    CALCULATE(
+        MAX(PilgrimData[Pilgrims]),
+        PilgrimData[year]=2000,
+        ALLEXCEPT(PilgrimData, PilgrimData[Shrine])
+    )
+VAR EndValue =
+    MAX(PilgrimData[Pilgrims])
+VAR YearsDiff =
+    MAX(PilgrimData[year]) - 2000
+RETURN
+IF(
+    YearsDiff > 0,
+    (POWER(DIVIDE(EndValue, StartValue), 1 / YearsDiff) - 1),
+    BLANK()
+)
 
+## For Growth_Rate i wrote this Dax formula
+
+Growth_Rate = 
+VAR BaseValue = 
+    CALCULATE(
+        MAX(PilgrimData[pilgrims]),
+        PilgrimData[year]=2000,
+        ALLEXCEPT(PilgrimData, PilgrimData[shrine])
+    )
+RETURN 
+DIVIDE(
+    MAX(PilgrimData[Pilgrims]) - BaseValue,
+    BaseValue
+)
+## For max visitor year i wrote this Dax formula
+
+Max_Visitors_Year = 
+CALCULATE(
+    MAX(PilgrimData[Pilgrims])
+)
+
+## For min visitor year i wrote this Dax formula
+
+Min_Visitors_Year = 
+CALCULATE(
+    MIN(PilgrimData[Pilgrims])
+)
+
+## For total pilgrim i wrote this Dax formula
+
+Total_Pilgrims = SUM(PilgrimData[pilgrims])
+
+
+## For Year_of_Max_Visitors i wrote this Dax formula
+
+Year_of_Max_Visitors = 
+CALCULATE(
+    MAX(PilgrimData[year]),
+    FILTER(
+        PilgrimData,
+        PilgrimData[Pilgrims] = 
+            CALCULATE(MAX(PilgrimData[Pilgrims]))
+    )
+)
+
+## For Year_of_Min_Visitors i wrote this Dax formula
+
+Year_of_Min_Visitors = 
+CALCULATE(
+    MIN(PilgrimData[year]),
+    FILTER(
+        PilgrimData,
+        PilgrimData[Pilgrims] = 
+            CALCULATE(MIN(PilgrimData[Pilgrims]))
+    )
+)
